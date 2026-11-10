@@ -6,29 +6,38 @@ class _CommunityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> socials = [
-      if (RemoteConfigService.redditUrl.get().isNotEmpty)
-        IconButton.filled(
-          icon: const Icon(SpIcons.reddit),
-          onPressed: () => UrlOpenerService.openInCustomTab(context, RemoteConfigService.redditUrl.get()),
+      IconButton.filledTonal(
+        tooltip: 'LinkedIn',
+        icon: const Icon(SpIcons.linkedin),
+        onPressed: () => UrlOpenerService.openInCustomTab(
+          context,
+          'https://www.linkedin.com/in/mubarek-hassen-bul',
         ),
-      if (RemoteConfigService.tiktokUsername.get().isNotEmpty)
-        IconButton.filledTonal(
-          icon: const Icon(Icons.tiktok_outlined),
-          onPressed: () => UrlOpenerService.openInCustomTab(
-            context,
-            "https://www.tiktok.com/@${RemoteConfigService.tiktokUsername.get()}",
-          ),
+      ),
+      IconButton.filledTonal(
+        tooltip: 'X (Twitter)',
+        icon: const Icon(SpIcons.twitter),
+        onPressed: () => UrlOpenerService.openInCustomTab(
+          context,
+          'https://x.com/mubarek_hb',
         ),
-      if (RemoteConfigService.twitterUrl.get().isNotEmpty)
-        IconButton.filledTonal(
-          icon: const Icon(SpIcons.twitter),
-          onPressed: () => UrlOpenerService.openInCustomTab(context, RemoteConfigService.twitterUrl.get()),
+      ),
+      IconButton.filledTonal(
+        tooltip: 'Instagram',
+        icon: const Icon(SpIcons.instagram),
+        onPressed: () => UrlOpenerService.openInCustomTab(
+          context,
+          'https://www.instagram.com/focustillrich1',
         ),
-      if (RemoteConfigService.bugReportUrl.get().isNotEmpty)
-        IconButton.filledTonal(
-          icon: const Icon(SpIcons.bug),
-          onPressed: () => UrlOpenerService.openInCustomTab(context, RemoteConfigService.bugReportUrl.get()),
+      ),
+      IconButton.filledTonal(
+        tooltip: 'Telegram',
+        icon: const Icon(SpIcons.telegram),
+        onPressed: () => UrlOpenerService.openInCustomTab(
+          context,
+          'https://t.me/mubarek_h',
         ),
+      ),
     ];
 
     return Container(

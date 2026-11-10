@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:storypad/core/extensions/matrix_4_extension.dart';
-import 'package:storypad/core/services/remote_config/remote_config_service.dart';
 import 'package:storypad/core/services/url_opener_service.dart';
 import 'package:storypad/views/home/home_view.dart';
 import 'package:storypad/views/legal/privacy_policy_view.dart';

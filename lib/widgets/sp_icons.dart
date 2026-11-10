@@ -178,8 +178,10 @@ class SpIcons {
   static const IconData deleteOutline = MdiIcons.deleteOutline;
   // Brand icons deprecated upstream by the Material Design Icons project for
   // trademark reasons; they still render and have no in-MDI replacement.
-  static const IconData reddit = MdiIcons.reddit; // ignore: deprecated_member_use
   static const IconData twitter = MdiIcons.twitter; // ignore: deprecated_member_use
+  static const IconData linkedin = MdiIcons.linkedin; // ignore: deprecated_member_use
+  static const IconData instagram = MdiIcons.instagram; // ignore: deprecated_member_use
+  static const IconData telegram = kIsCupertino ? CupertinoIcons.paperplane : MdiIcons.sendCircle;
   static const IconData github = MdiIcons.github; // ignore: deprecated_member_use
   static const IconData apple = MdiIcons.apple; // ignore: deprecated_member_use
   static const IconData googleMaps = MdiIcons.googleMaps; // ignore: deprecated_member_use
