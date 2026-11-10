@@ -15,11 +15,11 @@ class AppLogoService {
   static const _channel = MethodChannel('default_platform_channel');
 
   Future<AppLogo> getCurrent() async {
-    return await _AppLogoStorage().readEnum() ?? AppLogo.storypad_1_0;
+    return await _AppLogoStorage().readEnum() ?? AppLogo.storypad_6_0;
   }
 
   Future<bool> set(AppLogo logo) async {
-    if (logo == AppLogo.values.first) {
+    if (logo == AppLogo.storypad_6_0) {
       return reset();
     }
 
@@ -51,7 +51,7 @@ class AppLogoService {
     try {
       await _channel.invokeMethod('AppLogoService.set', {
         if (Platform.isIOS) 'xcodeLogoName': null,
-        if (Platform.isAndroid) 'androidActivityAliasName': AppLogo.values.first.androidActivityAliasName,
+        if (Platform.isAndroid) 'androidActivityAliasName': AppLogo.storypad_6_0.androidActivityAliasName,
       });
       cleared = true;
     } catch (e) {
@@ -61,7 +61,7 @@ class AppLogoService {
 
     if (cleared) {
       await _AppLogoStorage().remove();
-      kAppLogo = AppLogo.storypad_1_0;
+      kAppLogo = AppLogo.storypad_6_0;
       AnalyticsUserProperyService.instance.logSetAppLogo(newAppLogo: null);
     }
 

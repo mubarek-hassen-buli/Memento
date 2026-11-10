@@ -39,7 +39,7 @@ class StoryPlainTextExporter {
     final header = headerParts.isNotEmpty ? "${headerParts.join('\n')}\n\n" : '';
     final pagesText = pages.map(_pageContent).where((content) => content.isNotEmpty).join('\n\n---\n\n').trim();
 
-    return "$header$pagesText\n\n#StoryPad";
+    return "$header$pagesText\n\n#Memento";
   }
 
   String _pageContent(StoryPageObject page) {

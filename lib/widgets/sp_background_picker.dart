@@ -1,16 +1,13 @@
-import 'dart:async';
 import 'dart:math';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:storypad/app_theme.dart';
 import 'package:storypad/core/constants/app_constants.dart';
 import 'package:storypad/core/databases/models/story_preferences_db_model.dart';
 import 'package:storypad/core/helpers/path_helper.dart';
 import 'package:storypad/core/mixins/debounched_callback.dart';
-import 'package:storypad/core/services/url_opener_service.dart';
 import 'package:storypad/gen/story_backgrounds.dart';
 import 'package:storypad/providers/in_app_purchase_provider.dart';
 import 'package:storypad/views/paywall/paywall_view.dart';
@@ -131,98 +128,30 @@ class _SpBackgroundPickerState extends State<SpBackgroundPicker> with Debounched
   }
 
   Widget buildGroupSelector() {
-    return Stack(
-      children: [
-        Align(
-          alignment: .centerLeft,
-          child: SingleChildScrollView(
-            scrollDirection: .horizontal,
-            padding: const EdgeInsets.only(left: 16.0, right: 48.0),
-            child: Row(
-              spacing: 8.0,
-              children: allGroups.entries.map((entry) {
-                return FilterChip(
-                  key: groupLabelKeys[entry.key],
-                  selected: selectedGroup == entry.key,
-                  label: Text(entry.value),
-                  showCheckmark: false,
-                  onSelected: (selected) {
-                    if (selected) {
-                      setState(() {
-                        selectedGroup = entry.key;
-                      });
-                    }
-                  },
-                );
-              }).toList(),
-            ),
-          ),
+    return Align(
+      alignment: .centerLeft,
+      child: SingleChildScrollView(
+        scrollDirection: .horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Row(
+          spacing: 8.0,
+          children: allGroups.entries.map((entry) {
+            return FilterChip(
+              key: groupLabelKeys[entry.key],
+              selected: selectedGroup == entry.key,
+              label: Text(entry.value),
+              showCheckmark: false,
+              onSelected: (selected) {
+                if (selected) {
+                  setState(() {
+                    selectedGroup = entry.key;
+                  });
+                }
+              },
+            );
+          }).toList(),
         ),
-        if (selectedGroup != 'colors')
-          Positioned(
-            right: 0,
-            child: SpFadeIn.fromRight(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: .centerLeft,
-                    end: .centerRight,
-                    colors: [
-                      widget.backgroundColor.withValues(alpha: 0.0),
-                      widget.backgroundColor,
-                      widget.backgroundColor,
-                    ],
-                  ),
-                ),
-                child: IconButton(
-                  icon: const Icon(SpIcons.info),
-                  onPressed: () => showLicenseDialog(context),
-                ),
-              ),
-            ),
-          ),
-      ],
-    );
-  }
-
-  Future<void> showLicenseDialog(BuildContext context) {
-    return showAdaptiveDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) {
-        return AlertDialog.adaptive(
-          content: Container(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: MarkdownBody(
-              listItemCrossAxisAlignment: MarkdownListItemCrossAxisAlignment.start,
-              styleSheet: MarkdownStyleSheet(
-                p: TextTheme.of(context).bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                ),
-                a: TextTheme.of(context).bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  decorationColor: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-              data: tr(
-                "general.story_background_credits",
-                context: context,
-                namedArgs: {
-                  'BACKGROUND_LINK': "[Freepik](https://freepik.com)",
-                  'APP_NAME': kAppName,
-                },
-              ),
-              onTapLink: (text, href, title) => UrlOpenerService.openForMarkdown(
-                context: context,
-                text: text,
-                href: href,
-                title: title,
-              ),
-            ),
-          ),
-        );
-      },
+      ),
     );
   }
 }

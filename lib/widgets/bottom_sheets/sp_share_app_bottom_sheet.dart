@@ -18,9 +18,9 @@ class SpShareAppBottomSheet extends BaseBottomSheet {
         'general.share_app_sample_text',
         namedArgs: {
           'APP_NAME': kAppName,
-          'URL': 'https://storypad.me',
+          'URL': '',
         },
-      ),
+      ).trim(),
       builder: (context, notifier) {
         return SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),

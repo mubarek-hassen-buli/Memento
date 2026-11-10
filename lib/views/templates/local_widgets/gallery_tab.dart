@@ -1,20 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:storypad/core/databases/models/story_db_model.dart';
 import 'package:storypad/core/extensions/color_scheme_extension.dart';
 import 'package:storypad/core/objects/gallery_template_category_object.dart';
 import 'package:storypad/core/objects/gallery_template_object.dart';
 import 'package:storypad/core/services/gallery_template_service.dart';
-import 'package:storypad/core/services/url_opener_service.dart';
 import 'package:storypad/views/templates/gallery/show/show_template_gallery_view.dart';
 import 'package:storypad/views/templates/templates_view.dart';
 import 'package:storypad/widgets/sp_fade_in_fade_out_gradient.dart';
 import 'package:storypad/widgets/sp_firestore_storage_downloader_builder.dart';
-import 'package:storypad/widgets/sp_icons.dart';
 import 'package:storypad/widgets/sp_tap_effect.dart';
 
-part 'license_text.dart';
 part 'gallery_template_card.dart';
 
 class GalleryTab extends StatefulWidget {
@@ -69,7 +65,7 @@ class _GalleryTabState extends State<GalleryTab> {
 
     return Scaffold(
       body: ListView.separated(
-        itemCount: templates!.keys.length + 1,
+        itemCount: templates!.keys.length,
         padding: EdgeInsets.only(
           top: 16.0,
           bottom: 16.0 + MediaQuery.of(context).padding.bottom,
@@ -78,10 +74,6 @@ class _GalleryTabState extends State<GalleryTab> {
         ),
         separatorBuilder: (context, index) => const SizedBox(height: 24),
         itemBuilder: (BuildContext context, int index) {
-          if (index == templates?.length) {
-            return const _LicenseText();
-          }
-
           GalleryTemplateCategoryObject category = templates!.keys.elementAt(index);
           List<GalleryTemplateObject> templatesInCategory = templates!.values.elementAt(index);
 

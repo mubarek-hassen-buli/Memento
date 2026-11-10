@@ -10,7 +10,7 @@ import 'package:storypad/core/services/error_reporting/adaptors/base_error_repor
 import 'package:storypad/core/services/remote_config/adaptors/base_remote_config_adaptor.dart';
 import 'package:storypad/core/types/app_logo.dart';
 
-const String kAppName = String.fromEnvironment('APP_NAME');
+const String kAppName = String.fromEnvironment('APP_NAME', defaultValue: 'Memento');
 const String kRevenueCatAndroidApiKey = String.fromEnvironment('REVENUE_CAT_ANDROID_API_KEY');
 const String kRevenueCatIosApiKey = String.fromEnvironment('REVENUE_CAT_IOS_API_KEY');
 const String kEmailHasherSecreyKey = String.fromEnvironment('EMAIL_HASHER_SECRET_KEY');

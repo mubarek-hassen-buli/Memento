@@ -187,7 +187,7 @@ function sync_private_keys() {
   fi
 
   if [ ! -f "$DEST/dart_defines/community.json" ]; then
-    echo '{}' > "$DEST/dart_defines/community.json"
+    echo '{"APP_NAME": "Memento"}' > "$DEST/dart_defines/community.json"
   fi
 
   sync_app_store_connect_auth_keys

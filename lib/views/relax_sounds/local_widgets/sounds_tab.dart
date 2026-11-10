@@ -67,8 +67,6 @@ class _SoundsTab extends StatelessWidget {
               ),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
-            const SliverToBoxAdapter(child: Divider(height: 1)),
-            const SliverToBoxAdapter(child: _LicenseText()),
             SliverToBoxAdapter(child: SizedBox(height: MediaQuery.of(context).padding.bottom + 120.0)),
           ],
         );

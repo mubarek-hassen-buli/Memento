@@ -20,33 +20,17 @@ class _CommunityContent extends StatelessWidget {
         children: [
           const _CommunityCard(),
           ListTile(
-            leading: Icon(
-              SpIcons.favoriteFilled,
-              color: AppTheme.isDarkMode(context) ? Colors.red[300] : Colors.red[700],
-            ),
-            title: Text(tr('page.support_us.title')),
+            leading: const Icon(SpIcons.policy),
+            title: Text(tr("general.privacy_policy")),
             trailing: const Icon(SpIcons.keyboardRight),
-            onTap: () async {
-              await SupportUsRoute().push(context);
-              if (context.mounted) {
-                MessengerService.of(context).showSnackBar(tr('page.support_us.thank_you_message'));
-              }
-            },
+            onTap: () => const PrivacyPolicyRoute().push(context),
           ),
-          if (RemoteConfigService.policyPrivacyUrl.get().trim().isNotEmpty == true)
-            ListTile(
-              leading: const Icon(SpIcons.policy),
-              title: Text(tr("general.privacy_policy")),
-              trailing: const Icon(SpIcons.keyboardRight),
-              onTap: () => UrlOpenerService.openInCustomTab(context, RemoteConfigService.policyPrivacyUrl.get()),
-            ),
-          if (RemoteConfigService.sourceCodeUrl.get().trim().isNotEmpty == true)
-            ListTile(
-              leading: const Icon(SpIcons.code),
-              title: Text(tr("list_tile.source_code.title")),
-              subtitle: Text(tr("list_tile.source_code.subtitle")),
-              onTap: () => UrlOpenerService.openInCustomTab(context, RemoteConfigService.sourceCodeUrl.get()),
-            ),
+          ListTile(
+            leading: const Icon(SpIcons.info),
+            title: Text(tr("general.term_of_use")),
+            trailing: const Icon(SpIcons.keyboardRight),
+            onTap: () => const TermsOfUseRoute().push(context),
+          ),
           const Divider(),
           ListTile(
             leading: const Icon(SpIcons.onboarding),
@@ -59,20 +43,6 @@ class _CommunityContent extends StatelessWidget {
                 await Navigator.maybePop(context);
                 SpOnboardingWrapper.open(HomeView.homeContext!);
               }
-            },
-          ),
-          ListTile(
-            leading: const Icon(SpIcons.license),
-            title: Text(tr("list_tile.licenses.title")),
-            onLongPress: () => const DeveloperOptionsRoute().push(context),
-            onTap: () {
-              AnalyticsService.instance.logLicenseView();
-              showLicensePage(
-                context: context,
-                applicationName: kPackageInfo.appName,
-                applicationLegalese: '©${DateTime.now().year}',
-                applicationVersion: "${kPackageInfo.version}+${kPackageInfo.buildNumber}",
-              );
             },
           ),
         ],

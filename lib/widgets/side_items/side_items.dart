@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:storypad/core/constants/app_constants.dart';
-import 'package:storypad/core/services/app_store_opener_service.dart';
 import 'package:storypad/providers/in_app_purchase_provider.dart';
 import 'package:storypad/providers/root_provider.dart';
 import 'package:storypad/views/add_ons/add_ons_view.dart';
@@ -161,12 +160,6 @@ class SideItems {
         subtitle: null,
         icon: const Icon(SpIcons.forum),
         onTap: (context) => CommunityRoute().push(context),
-      ),
-      ListTileSideItem(
-        title: tr('list_tile.rate.title'),
-        subtitle: null,
-        icon: const Icon(SpIcons.star),
-        onTap: (context) => AppStoreOpenerService.call(),
       ),
       ListTileSideItem(
         title: tr('list_tile.share_app.title'),

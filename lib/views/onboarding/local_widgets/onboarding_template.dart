@@ -2,8 +2,7 @@ import 'dart:math';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:storypad/core/services/remote_config/remote_config_service.dart';
-import 'package:storypad/core/services/url_opener_service.dart';
+import 'package:storypad/views/legal/privacy_policy_view.dart';
 import 'package:storypad/widgets/sp_fade_in.dart';
 import 'package:storypad/widgets/sp_tap_effect.dart';
 

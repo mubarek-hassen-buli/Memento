@@ -26,6 +26,14 @@ Future<void> _checkUnusedAndMissingKeys() async {
     'page.cloud_optimize.step.fetch.done.one',
     'page.cloud_optimize.step.fetch.done.other',
     'page.backup_services.title',
+    'page.support_us.thank_you_message',
+    'list_tile.source_code.title',
+    'list_tile.source_code.subtitle',
+    'list_tile.licenses.title',
+    'list_tile.rate.title',
+    'sounds.credits',
+    'general.icons_credit',
+    'general.story_background_credits',
   };
 
   // Load en.json

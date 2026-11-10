@@ -10,7 +10,7 @@ class ExportStoriesToTextService {
   ///
   /// The file structure:
   /// ```
-  /// StoryPad ID: 1735537709471
+  /// Memento ID: 1735537709471
   /// Title: Story Title 1
   /// Date: 2024-12-20 14:30:45
   /// Tags: tag1, tag2
@@ -20,7 +20,7 @@ class ExportStoriesToTextService {
   ///
   /// ###
   ///
-  /// StoryPad ID: 1715024221522
+  /// Memento ID: 1715024221522
   /// Title: Story Title 2
   /// Date: 2024-12-25 09:15:30
   ///
@@ -76,8 +76,8 @@ class ExportStoriesToTextService {
     StoryContentDbModel content, {
     Future<String?> Function(int tagId)? tagNameGetter,
   }) async {
-    // StoryPad ID (for reimport)
-    buffer.writeln('StoryPad ID: ${story.id}');
+    // Memento ID (for reimport)
+    buffer.writeln('Memento ID: ${story.id}');
 
     // Title (only if not empty)
     if (content.title?.trim().isNotEmpty == true) {

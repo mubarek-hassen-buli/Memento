@@ -62,7 +62,7 @@ android {
         versionName = flutter.versionName
 
         // --dart-define-from-file=configs/example.json
-        resValue("string", "app_name", dartDefines["APP_NAME"] ?: "StoryPad C.")
+        resValue("string", "app_name", dartDefines["APP_NAME"] ?: "Memento")
         resValue("string", "google_map_api_key", dartDefines["GOOGLE_MAPS_ANDROID_API_KEY"] ?: "")
     }
 
@@ -102,7 +102,7 @@ android {
             dimension = "app"
             applicationId = "com.tc.writestory"
             namespace = "com.tc.writestory"
-            manifestPlaceholders["appLogo"] = "storypad_logo_1_0"
+            manifestPlaceholders["appLogo"] = "storypad_logo_6_0"
             manifestPlaceholders["dropboxCallbackScheme"] = "storypad"
         }
 
@@ -110,7 +110,7 @@ android {
             dimension = "app"
             applicationId = "com.tc.writestory.community"
             namespace = "com.tc.writestory.community"
-            manifestPlaceholders["appLogo"] = "ic_launcher"
+            manifestPlaceholders["appLogo"] = "storypad_logo_6_0"
             manifestPlaceholders["dropboxCallbackScheme"] = "storypadcommunity"
         }
     }
